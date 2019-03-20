@@ -21,7 +21,7 @@
             "interactive": true,
             "name": "Launch notebook",
             "description": "Start Jupyter notebook",
-            "url": "https://%PUBLICADDR%:8888?token=%RANDOM128%",
+            "url": "https://%PUBLICADDR%:8888?token=%RANDOM16%",
             "parameters": {
             },
             "publicip": true
