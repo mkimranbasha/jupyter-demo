@@ -1,0 +1,34 @@
+{
+    "name": "Jupyter Notebook Demo",
+    "description": "Demo for jupyter notebook on JARVICE",
+    "author": "nimbix",
+    "licensed": true,
+    "classifications": [
+        "Software Development"
+    ],
+    "machines": [
+        "n0"
+    ],
+    "vault-types": [
+        "FILE",
+        "BLOCK",
+        "BLOCK_ARRAY",
+        "OBJECT"
+    ],
+    "commands": {
+        "Notebook": {
+            "path": "/usr/local/bin/run-jupyter.sh",
+            "interactive": true,
+            "name": "Launch notebook",
+            "description": "Start Jupyter notebook",
+            "url": "https://%PUBLICADDR%:8888?token=%RANDOM128%",
+            "parameters": {
+            },
+            "publicip": true
+        }    
+    },
+    "image": {
+        "type": "image/png",
+        "data": ""
+    }
+}
