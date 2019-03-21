@@ -1,5 +1,6 @@
 FROM nimbix/ubuntu-desktop:xenial
-RUN apt-get update && apt-get install -y python3-pip sudo
+# Install python package manager
+RUN apt-get update && apt-get install -y python3-pip
 # Setup environment for jupyter notebook
 RUN pip3 install jupyter
 COPY AppDef.json /etc/NAE/AppDef.json
