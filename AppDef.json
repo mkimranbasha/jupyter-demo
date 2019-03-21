@@ -21,10 +21,17 @@
             "interactive": true,
             "name": "Launch notebook",
             "description": "Start Jupyter notebook",
-            "url": "https://%PUBLICADDR%:8888?token=%RANDOM16%",
+            "url": "http://%PUBLICADDR%:8888?token=%RANDOM64%",
             "parameters": {
-            },
-            "publicip": true
+            }
+        },
+        "Server": {
+            "path": "/sbin/init",
+            "interactive": true,
+            "name": "Launch Ubuntu",
+            "description": "Start Ubuntu",
+            "parameters": {
+            }
         }    
     },
     "image": {
