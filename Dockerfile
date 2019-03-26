@@ -1,8 +1,8 @@
-FROM nimbix/ubuntu-desktop:xenial
-# Install python package manager
-RUN apt-get update && apt-get install -y python3-pip
-# Setup environment for jupyter notebook
-RUN pip3 install jupyter
+ARG BASE_IMAGE
+ARG IMAGE_TAG
+FROM ${BASE_IMAGE}:${IMAGE_TAG}
 COPY AppDef.json /etc/NAE/AppDef.json
-ADD run-jupyter.sh /usr/local/bin/run-jupyter.sh
-RUN chmod 755 /usr/local/bin/run-jupyter.sh
+ARG BASE_IMAGE
+ARG BRANCH
+ADD https://raw.githubusercontent.com/nimbix/notebook-common/${BRANCH}/install-${BASE_IMAGE}.sh /tmp/install-${BASE_IMAGE}.sh
+RUN bash /tmp/install-${BASE_IMAGE}.sh -p -b ${BRANCH} && rm -f /tmp/install-${BASE_IMAGE}.sh

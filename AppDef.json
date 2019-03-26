@@ -17,22 +17,13 @@
     ],
     "commands": {
         "Notebook": {
-            "path": "/usr/local/bin/run-jupyter.sh",
+            "path": "/usr/local/bin/nimbix_notebook",
             "interactive": true,
             "name": "Launch notebook",
             "description": "Start Jupyter notebook",
-            "url": "http://%PUBLICADDR%:8888?token=%RANDOM64%",
             "parameters": {
             }
-        },
-        "Server": {
-            "path": "/sbin/init",
-            "interactive": true,
-            "name": "Launch Ubuntu",
-            "description": "Start Ubuntu",
-            "parameters": {
-            }
-        }    
+        }
     },
     "image": {
         "type": "image/png",
