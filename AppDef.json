@@ -18,6 +18,7 @@
     "commands": {
         "Notebook": {
             "path": "/usr/local/bin/nimbix_notebook",
+            "url": "https://%PUBLICADDR%/?token=%RANDOM64%",
             "interactive": true,
             "name": "Launch notebook",
             "description": "Start Jupyter notebook",

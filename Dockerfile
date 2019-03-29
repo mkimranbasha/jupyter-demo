@@ -1,8 +1,13 @@
 ARG BASE_IMAGE
 ARG IMAGE_TAG
-FROM ${BASE_IMAGE}:${IMAGE_TAG}
-COPY AppDef.json /etc/NAE/AppDef.json
+FROM ${BASE_IMAGE}:${IMAGE_TAG:-latest}
 ARG BASE_IMAGE
 ARG BRANCH
-ADD https://raw.githubusercontent.com/nimbix/notebook-common/${BRANCH}/install-${BASE_IMAGE}.sh /tmp/install-${BASE_IMAGE}.sh
-RUN bash /tmp/install-${BASE_IMAGE}.sh -p -b ${BRANCH} && rm -f /tmp/install-${BASE_IMAGE}.sh
+ARG PYTHON
+ADD https://raw.githubusercontent.com/nimbix/notebook-common/${BRANCH:-master}/install-notebook-common /tmp/install-notebook-common
+RUN cat /tmp/install-notebook-common | su - -c 'sed "s|<SHELL>|${SHELL}|"' | su - -c '${SHELL} -s -- '"-b ${BRANCH:-master} ${PYTHON}" && rm /tmp/install-notebook-common
+
+COPY AppDef.json /etc/NAE/AppDef.json
+
+EXPOSE 5901
+EXPOSE 443
